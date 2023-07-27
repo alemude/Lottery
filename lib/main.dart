@@ -1,9 +1,9 @@
-// ignore_for_file: library_private_types_in_public_api
-
 import 'package:flutter/material.dart';
 
 import 'ButtomNavBar/home.dart';
 import 'ButtomNavBar/order.dart';
+import 'ButtomNavBar/product.dart';
+import 'ButtomNavBar/store.dart';
 import 'Product/addProduct.dart';
 
 void main() => runApp(const MyApp());
@@ -27,48 +27,16 @@ class _MyAppState extends State<MyApp> {
       },
       home: Scaffold(
         appBar: AppBar(
-          leading: PopupMenuButton(
-            icon: const Icon(Icons.menu),
-            onSelected: (value) {
-              setState(() {
-                if(value==1){
-    Navigator.push(
- context,
- MaterialPageRoute(
- builder: (context) => const AddProduct(),
- ),
- );
-                }
-              });
-            },
-            itemBuilder: (BuildContext bc) {
-              return const [
-                PopupMenuItem(
-                  value: 1,
-                  child: Text("Add product"),
-                ),
-                PopupMenuItem(
-                  value: '/about',
-                  child: Text("Edit Product"),
-                ),
-                PopupMenuItem(
-                  value: '/contact',
-                  child: Text("Delete Product"),
-                )
-              ];
-            },
+          leading: const CircleAvatar(
+            child: ClipOval(
+              child: Image(image: AssetImage('assets/logo.png')),
+            ),
           ),
           backgroundColor:
               const Color.fromARGB(255, 8, 100, 48), // set the background color
-          title: const Text('My App'), // set the title text
+          title: const Text('Furniture App'), // set the title text
           centerTitle: true, // center the title text
           actions: [
-            IconButton(
-              icon: const Icon(Icons.search), // add a search icon button
-              onPressed: () {
-                // add your search functionality here
-              },
-            ),
             IconButton(
               icon: const Icon(Icons.settings), // add a settings icon button
               onPressed: () {
@@ -93,12 +61,10 @@ class MyNavigationBar extends StatefulWidget {
 class _MyNavigationBarState extends State<MyNavigationBar> {
   int _selectedIndex = 0;
   static final List<Widget> _widgetOptions = <Widget>[
-  home,
-  order,
-    // Text('Product Page',
-    //     style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
-    // Text('Store Page',
-    //     style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+    home,
+    const Order(),
+    const Product(),
+    store,
   ];
 
   void _onItemTapped(int index) {

@@ -1,11 +1,23 @@
 import 'package:flutter/material.dart';
-
 var home =ListView(
   children:   [
-      const Padding(
-        padding: EdgeInsets.only(left: 15, top: 15),
-        child: Text('Home',
-            style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+      Padding(
+        padding: const EdgeInsets.only(left: 15, top: 15),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Text('Home',
+                style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+          IconButton(
+            onPressed: () {
+              
+            },
+            icon:const Icon(Icons.person,
+            color: Colors.green,
+            ),
+          ),
+          ],
+        ),
       ),
          const Padding(
         padding: EdgeInsets.only(left: 15),
@@ -23,7 +35,7 @@ var home =ListView(
        fit: StackFit.passthrough,
        children: <Widget>[
 Container(
-            color: Colors.green,
+            color: Colors.white,
             child: const Center(
                 child: Image(
               image: AssetImage('assets/1.jpg'),
@@ -36,7 +48,7 @@ Container(
             child: Container(
               height: 150,
               width: 150,
-              color: Colors.blue,
+              color: Colors.white,
               child: const Center(
                   child: Image(
                     image: AssetImage('assets/10.jpg'),
@@ -67,7 +79,7 @@ Container(
               child: Container(
                 height: 150,
                 width: 150,
-                color: Colors.orange,
+                color: Colors.white,
                 child: const Center(
                   child: Image(
                     image: AssetImage('assets/11.jpg'),
@@ -86,7 +98,7 @@ Container(
         children: <Widget>[
           // Max Size Widget
           Container(
-            color: Colors.green,
+            color: Colors.white,
             child: const Center(
                 child: Image(
               image: AssetImage('assets/b1.jpg'),
